@@ -3,7 +3,7 @@
     "path": "D:/Desktop/IEAP/M1/Python-R-Git/Series02/Series02-Rstudio/Series02-Rstudio.qmd",
     "project_path": "Series02-Rstudio.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "2157398633",
     "contents": "",
     "dirty": false,
     "created": 1790791480516.0,
@@ -12,15 +12,20 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "13,0",
-        "scrollLine": "1"
+        "cursorPosition": "0,0",
+        "scrollLine": "0",
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "181:0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1790792152,
+    "lastKnownWriteTime": 1790792310,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1790792152920,
+    "last_content_update": 1790792310440,
     "read_only": false,
     "read_only_alternatives": []
 }
