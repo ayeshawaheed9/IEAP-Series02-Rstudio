@@ -1,4 +1,9 @@
-## 1. What is a median? A mean?
+---
+title: "Series02-Rstudio" 
+format: html 
+---
+
+## 1. What is  a median? A mean?
 
 **Median:** The middle value of a dataset when the values are arranged in order.
 
@@ -26,11 +31,13 @@ A **statistical test** is a method applied to research data to determine the imp
 
 **Reference:** <https://www.sciencedirect.com/topics/social-sciences/statistical-test>
 
+
 ## 5. When to use a statistical test?
 
 We use a statistical test when we want to determine whether an observed result is likely to be due to a real effect or to random variation or by chance.
 
 **Reference:** <https://www.sciencedirect.com/topics/social-sciences/statistical-test>
+
 
 ## 6. What is a parametric test? A non-parametric test?
 
@@ -40,23 +47,24 @@ We use a statistical test when we want to determine whether an observed result i
 
 **Reference:** <https://builtin.com/data-science/parametric-vs-nonparametric>
 
+
 ## 7. What are the assumptions of parametric tests?
 
 Common assumptions are:
 
-1.  Normality – Data in each group should be normally distributed.
+1. Normality – Data in each group should be normally distributed.
 
-2.  Equal Variance – Data in each group should have approximately equal variance.
+2. Equal Variance – Data in each group should have approximately equal variance.
 
-3.  Independence – Data in each group should be randomly and independently sampled from the population.
+3. Independence – Data in each group should be randomly and independently sampled from the population.
 
-4.  No Outliers – There should be no extreme outliers.
+4. No Outliers – There should be no extreme outliers.
 
 **Reference:** <https://www.statology.org/parametric-tests-assumptions>
 
 ## 8. What are the assumptions of non-parametric tests?
 
-Non-parametric tests generally require fewer assumptions, but the observations still need to be independent, randomly sampled (collected appropriately) and the data must be suitable for the chosen test.
+Non-parametric tests generally require fewer assumptions, but the observations still need to be independent, randomly sampled (collected appropriately) and the data must be suitable for the chosen test. 
 
 **Reference:** <https://www.itl.nist.gov/div898/handbook/prc/section2/prc2.htm>
 
@@ -67,6 +75,7 @@ A **p-value** tells us how likely the observed result is if there is no real eff
 A small p-value suggests that the result is less likely to be due to chance.
 
 **Reference:** <https://openstax.org/books/introductory-statistics-2e/pages/9-4-rare-events-the-sample-decision-and-conclusion>
+
 
 ## 10. What is the risk of error when using a statistical test?
 
