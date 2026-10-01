@@ -5,7 +5,7 @@ shapiro.test(snore$bmi[snore$snore == "O"])
 shapiro.test(snore$bmi[snore$snore == "N"])
 ```
 
-Normality of BMI was rejected in both groups (p < 0.05), so snorers and non-snorers were compared with the Mann-Whitney test.
+Normality of BMI was rejected in both groups (p < 0.05), so snorers and non-snorers were compared with the Mann-Whitney test. Since the distributions had a similar shape in both groups (see figure below), the test was interpreted as a comparison of medians.
 
 ```{r test-bmi-snore}
 tapply(snore$bmi, snore$snore, median)
