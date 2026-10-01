@@ -1,0 +1,38 @@
+The Before and After values were measured on the same 8 patients, so we used a paired comparison. The data file contains no patient identifier, so we assumed that the rows are in the same patient order in both groups.
+
+```{r normality-prepost}
+before <- prepost$perf[prepost$time == "Before"]
+after  <- prepost$perf[prepost$time == "After"]
+shapiro.test(after - before)
+```
+
+Normality of the differences was not rejected (p > 0.05), but with only 8 patients the Shapiro-Wilk test has very low power, so we used the non-parametric Wilcoxon signed-rank test.
+
+```{r compare-prepost}
+wilcox.test(after, before, paired = TRUE)
+```
+
+The Wilcoxon signed-rank test showed a significant increase of perf after rehabilitation (p < 0.05), assuming that the rows are ordered by patient.
+
+#### Graph
+
+```{r plot-prepost}
+prepost$patient <- rep(1:8, times = 2)
+prepost$time <- factor(prepost$time, levels = c("Before", "After"))
+
+ggplot(prepost, aes(x = time, y = perf, group = patient)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Perf before and after rehabilitation",
+       x = "Time",
+       y = "Perf (unit not specified)") +
+  theme_bw()
+```
+
+Figure: Perf of each patient before and after rehabilitation. Each line connects the two measures of the same patient, assuming that the rows are ordered by patient. All 8 patients show an increase, ranging from 1 to 5 units.
+
+#### Conclusion
+
+After the rehabilitation program, perf increased significantly in the 8 patients, with a median increase of 2.5 units (Wilcoxon signed-rank test, p < 0.05), assuming that the rows of the data file are ordered by patient.
+
+This conclusion relies on the assumption that the rows are in the same patient order in both groups. Since the values of each group are sorted in increasing order, this pairing could not be verified, and sorting alone would produce positive differences. The original data with a patient identifier would be needed to confirm this result. Moreover, since the data only include measures before and after the program, we cannot assess whether the effect is lasting.
