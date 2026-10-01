@@ -1,25 +1,45 @@
-The Before and After values were measured on the same 8 patients, so we used a paired comparison. The data file contains no patient identifier, so we assumed that the rows are in the same patient order in both groups.
+#### Does the treatment have an effect?
+
+Yes, Perf increased significantly after rehabilitation (Wilcoxon signed-rank test, p < 0.05), assuming that the rows are ordered by patient. The comparison, the test and the graph supporting this answer are detailed below.
+
+
+#### What comparison are you going to make?
+
+The Before and After values were measured on the same 8 patients, so we compared perf Before and After rehabilitation with a paired comparison. The data file contains no patient identifier, so we assumed that the rows are in the same patient order in both groups.
+
+#### Which test will you use? Parametric or non-parametric?
+
+For a paired comparison, normality is checked on the differences between the two measures of each patient.
 
 ```{r normality-prepost}
+# Separate the Before and After values
 before <- prepost$perf[prepost$time == "Before"]
 after  <- prepost$perf[prepost$time == "After"]
+
+# Shapiro-Wilk test on the differences (After minus Before)
 shapiro.test(after - before)
 ```
 
 Normality of the differences was not rejected (p > 0.05), but with only 8 patients the Shapiro-Wilk test has very low power, so we used the non-parametric Wilcoxon signed-rank test.
 
 ```{r compare-prepost}
+# Wilcoxon signed-rank test (paired, non-parametric)
 wilcox.test(after, before, paired = TRUE)
 ```
 
-The Wilcoxon signed-rank test showed a significant increase of perf after rehabilitation (p < 0.05), assuming that the rows are ordered by patient.
 
-#### Graph
+#### Which graph illustrates the effect of the treatment?
+
+A line plot connecting the two measures of each patient shows the individual change, which suits a paired design.
 
 ```{r plot-prepost}
+# Patient identifier, assuming the same patient order in both groups
 prepost$patient <- rep(1:8, times = 2)
+
+# Order the time axis: Before then After
 prepost$time <- factor(prepost$time, levels = c("Before", "After"))
 
+# One line per patient, from Before to After
 ggplot(prepost, aes(x = time, y = perf, group = patient)) +
   geom_line() +
   geom_point() +
@@ -31,7 +51,7 @@ ggplot(prepost, aes(x = time, y = perf, group = patient)) +
 
 Figure: Perf of each patient before and after rehabilitation. Each line connects the two measures of the same patient, assuming that the rows are ordered by patient. All 8 patients show an increase, ranging from 1 to 5 units.
 
-#### Conclusion
+#### What sentence will you write in your thesis to explain your result?
 
 After the rehabilitation program, perf increased significantly in the 8 patients, with a median increase of 2.5 units (Wilcoxon signed-rank test, p < 0.05), assuming that the rows of the data file are ordered by patient.
 
