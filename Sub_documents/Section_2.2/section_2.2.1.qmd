@@ -1,0 +1,23 @@
+```{r setup-libraries}
+library(tidyverse)
+```
+
+```{r load-prepost}
+prepost <- read.csv("data/PrePost.csv")
+names(prepost)
+head(prepost)
+summary(prepost)
+nrow(prepost)
+```
+
+```{r look-prepost}
+prepost
+table(prepost$time)
+```
+
+| Variable | Description | Unit | Possible values | Expected change |
+|----------|-------------|------|-----------------|-----------------|
+| perf | Performance measure (exact nature not specified in the data file) | not specified | observed 125 to 148 | increase after rehabilitation, assuming higher values mean better performance |
+| time | Moment of the measurement | none | Before, After | not applicable |
+
+The file contains 16 rows, 8 measures Before and 8 measures After rehabilitation, which corresponds to 8 patients. There is no patient identifier, and within each group the values are sorted in increasing order. The data file does not specify what perf measures nor its unit, so the expected change is an assumption.
