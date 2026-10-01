@@ -1,3 +1,20 @@
+---
+title: "Series 02 - RStudio"
+author:
+  - Ayesha Waheed
+  - Martin Pigeau
+date: "10-02-2026"
+format: html
+---
+## GitHub Repository
+
+View our GitHub repository
+<https://github.com/ayeshawaheed9/Series02-Rstudio>
+
+## Team Workflow Strategy Using Git
+
+## Challenges Encountered and Lessons Learned
+
 # Section 2: Statistical Tests
 
 ## 2.1 Make clear what is a statistical test, and when to use it.
@@ -23,3 +40,26 @@
 ### 2.3.2 The analysis
 
 {{< include Sub_documents/Section_2.3/section_2.3.2.qmd >}}
+
+
+## Grading Criteria Checklist
+
+The following checklist was used to ensure that all grading criteria were met and that our Git workflow was properly followed.
+
+### Project Structure
+- [x] Clear and complete `README.md` and `LICENSE` files included.
+- [x] Complete `IEAP-Series02-Rstudio.qmd` file and corresponding PDF included.
+- [x] Clean folder structure with subfolders and sub-documents.
+- [x] Sub-documents used so team members could work on different sections simultaneously.
+
+### Git Workflow
+- [x] Separate branches created for different sections.
+- [x] Meaningful commit messages used, with at least one commit per question.
+- [x] Changes pushed regularly to GitHub.
+- [x] Team members reviewed each other's Pull Requests to recheck the work before merging.
+- [x] Final branches and merged code were checked to ensure no work was lost.
+
+### Final Check
+- [x] Master QMD was checked after merging all sections.
+- [x] Final document was rendered and checked.
+- [x] All required files and sections were present and correctly structured.
