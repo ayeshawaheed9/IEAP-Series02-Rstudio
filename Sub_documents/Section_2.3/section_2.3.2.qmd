@@ -97,3 +97,29 @@ ggplot(snore, aes(x = sex, y = bmi)) +
 ```
 
 Men did not have a higher BMI than women (median 28.1 vs 27.7 kg/m², Mann-Whitney test, p > 0.05). The data do not confirm the stereotype that men are fatter
+
+
+#### Do women smoke less?
+
+Since both variables are categorical, smoking was compared between men and women with a chi-squared test, after checking that all expected counts were at least 5
+
+```{r test-tabac-sex}
+tab_sex <- table(snore$sex, snore$tabac, dnn = c("sex", "tabac"))
+tab_sex
+round(prop.table(tab_sex, margin = 1) * 100, 1)
+test_sex <- chisq.test(tab_sex)
+test_sex$expected
+test_sex
+```
+
+```{r plot-tabac-sex}
+ggplot(snore, aes(x = sex, fill = tabac)) +
+  geom_bar(position = "fill", color = "black") +
+  scale_x_discrete(labels = c("F" = "Women", "H" = "Men")) +
+  scale_fill_grey(start = 0.9, end = 0.4, labels = c("N" = "Non-smoker", "O" = "Smoker")) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "Proportion of smokers among men and women", x = "", y = "Proportion", fill = "") +
+  theme_bw()
+```
+
+Women smoked significantly less than men (40% vs 72% of smokers, chi-squared test, p < 0.05). The data confirm the stereotype that women smoke less.
