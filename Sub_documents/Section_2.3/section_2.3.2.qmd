@@ -123,3 +123,25 @@ ggplot(snore, aes(x = sex, fill = tabac)) +
 ```
 
 Women smoked significantly less than men (40% vs 72% of smokers, chi-squared test, p < 0.05). The data confirm the stereotype that women smoke less.
+
+
+#### Are there any correlations between variables?
+
+Since BMI and alcohol consumption were not normally distributed, correlations between the numeric variables were assessed with the Spearman correlation.
+
+```{r correlations-snore}
+num <- snore[, c("age", "weight", "height", "alcool", "bmi")]
+
+round(cor(num, method = "spearman"), 2)
+
+pairs_list <- combn(names(num), 2)
+results <- t(apply(pairs_list, 2, function(v) {
+  test <- cor.test(num[[v[1]]], num[[v[2]]], method = "spearman", exact = FALSE)
+  c(var1 = v[1], var2 = v[2], rho = round(unname(test$estimate), 2), p = signif(test$p.value, 3))
+}))
+results
+
+pairs(num)
+```
+
+Spearman correlations between numeric variables showed a very strong positive correlation between weight and height (rho = 0.93, p < 0.05). BMI was also correlated with weight (rho = 0.54, p < 0.05) and height (rho = 0.30, p < 0.05), but these correlations are expected since BMI is computed from both variables. Age and alcohol consumption were not correlated with any other variable (p > 0.05). These conclusions remain unchanged after a Bonferroni correction for the 10 tests performed (threshold p < 0.005). The almost perfect alignment between weight and height is unusual for human data and suggests that this data set may have been partly simulated.
