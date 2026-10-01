@@ -1,18 +1,30 @@
-#### Are snorers fatter?
+```{r setup-2-3-2}
+# Libraries, data and BMI, needed when rendered alone
+library(tidyverse)
+data_dir <- if (dir.exists("data")) "data" else "../../data"
+snore <- read.delim(file.path(data_dir, "snore.txt"))
+snore$bmi <- snore$weight / (snore$height / 100)^2
+```
+
+#### Do the data confirm the following stereotypes?
+
+##### Are snorers fatter?
 
 ```{r normality-bmi-snore}
+# Normality of BMI in each group
 shapiro.test(snore$bmi[snore$snore == "O"])
 shapiro.test(snore$bmi[snore$snore == "N"])
 ```
-
 Normality of BMI was rejected in both groups (p < 0.05), so snorers and non-snorers were compared with the Mann-Whitney test. Since the distributions had a similar shape in both groups (see figure below), the test was interpreted as a comparison of medians.
 
 ```{r test-bmi-snore}
+# Median BMI per group and Mann-Whitney test
 tapply(snore$bmi, snore$snore, median)
 wilcox.test(bmi ~ snore, data = snore)
 ```
 
 ```{r plot-bmi-snore}
+# Boxplot of BMI by snoring status
 ggplot(snore, aes(x = snore, y = bmi)) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.1, height = 0, alpha = 0.5) +
@@ -20,25 +32,25 @@ ggplot(snore, aes(x = snore, y = bmi)) +
   labs(title = "BMI of snorers and non-snorers", x = "", y = "BMI (kg/m²)") +
   theme_bw()
 ```
-
 Snorers did not have a higher BMI than non-snorers (median 28.1 kg/m² in both groups, Mann-Whitney test, p > 0.05). The data do not confirm the stereotype that snorers are fatter.
 
-
-#### Do snorers drink or smoke more?
+##### Do snorers drink or smoke more?
 
 ```{r normality-alcool-snore}
+# Normality of alcohol consumption in each group
 shapiro.test(snore$alcool[snore$snore == "O"])
 shapiro.test(snore$alcool[snore$snore == "N"])
 ```
-
 Normality of alcohol consumption was rejected in both groups (p < 0.05), so snorers and non-snorers were compared with the Mann-Whitney test.
 
 ```{r test-alcool-snore}
+# Median alcohol consumption per group and Mann-Whitney test
 tapply(snore$alcool, snore$snore, median)
 wilcox.test(alcool ~ snore, data = snore)
 ```
 
 ```{r plot-alcool-snore}
+# Boxplot of alcohol consumption by snoring status
 ggplot(snore, aes(x = snore, y = alcool)) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.1, height = 0, alpha = 0.5) +
@@ -52,6 +64,7 @@ Snorers drank significantly more alcohol than non-snorers (median 4 vs 0, Mann-W
 Since both variables are categorical, smoking was compared between snorers and non-snorers with a chi-squared test, after checking that all expected counts were at least 5.
 
 ```{r test-tabac-snore}
+# Contingency table, row percentages and chi-squared test
 tab_snore <- table(snore$snore, snore$tabac, dnn = c("snore", "tabac"))
 tab_snore
 round(prop.table(tab_snore, margin = 1) * 100, 1)
@@ -61,6 +74,7 @@ test_snore
 ```
 
 ```{r plot-tabac-snore}
+# Proportion of smokers by snoring status
 ggplot(snore, aes(x = snore, fill = tabac)) +
   geom_bar(position = "fill", color = "black") +
   scale_x_discrete(labels = c("N" = "Non-snorers", "O" = "Snorers")) +
@@ -70,12 +84,12 @@ ggplot(snore, aes(x = snore, fill = tabac)) +
   theme_bw()
 ```
 
-Snorers did not smoke more than non-snorers (57.1% vs 67.7% of smokers, chi-squared test, p > 0.05). The data do not confirm the stereotype that snorers smoke more
+Snorers did not smoke more than non-snorers (57.1% vs 67.7% of smokers, chi-squared test, p > 0.05). The data do not confirm the stereotype that snorers smoke more.
 
-
-#### Are men fatter?
+##### Are men fatter?
 
 ```{r normality-bmi-sex}
+# Normality of BMI in each sex
 shapiro.test(snore$bmi[snore$sex == "H"])
 shapiro.test(snore$bmi[snore$sex == "F"])
 ```
@@ -83,11 +97,13 @@ shapiro.test(snore$bmi[snore$sex == "F"])
 Normality of BMI was rejected in both groups (p < 0.05), so men and women were compared with the Mann-Whitney test.
 
 ```{r test-bmi-sex}
+# Median BMI per sex and Mann-Whitney test
 tapply(snore$bmi, snore$sex, median)
 wilcox.test(bmi ~ sex, data = snore)
 ```
 
 ```{r plot-bmi-sex}
+# Boxplot of BMI by sex
 ggplot(snore, aes(x = sex, y = bmi)) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.1, height = 0, alpha = 0.5) +
@@ -96,14 +112,14 @@ ggplot(snore, aes(x = sex, y = bmi)) +
   theme_bw()
 ```
 
-Men did not have a higher BMI than women (median 28.1 vs 27.7 kg/m², Mann-Whitney test, p > 0.05). The data do not confirm the stereotype that men are fatter
+Men did not have a higher BMI than women (median 28.1 vs 27.7 kg/m², Mann-Whitney test, p > 0.05). The data do not confirm the stereotype that men are fatter.
 
+##### Do women smoke less?
 
-#### Do women smoke less?
-
-Since both variables are categorical, smoking was compared between men and women with a chi-squared test, after checking that all expected counts were at least 5
+Since both variables are categorical, smoking was compared between men and women with a chi-squared test, after checking that all expected counts were at least 5.
 
 ```{r test-tabac-sex}
+# Contingency table, row percentages and chi-squared test
 tab_sex <- table(snore$sex, snore$tabac, dnn = c("sex", "tabac"))
 tab_sex
 round(prop.table(tab_sex, margin = 1) * 100, 1)
@@ -113,6 +129,7 @@ test_sex
 ```
 
 ```{r plot-tabac-sex}
+# Proportion of smokers by sex
 ggplot(snore, aes(x = sex, fill = tabac)) +
   geom_bar(position = "fill", color = "black") +
   scale_x_discrete(labels = c("F" = "Women", "H" = "Men")) +
@@ -124,16 +141,18 @@ ggplot(snore, aes(x = sex, fill = tabac)) +
 
 Women smoked significantly less than men (40% vs 72% of smokers, chi-squared test, p < 0.05). The data confirm the stereotype that women smoke less.
 
-
-#### Are there any correlations between variables?
+#### From a more general perspective: are there any correlations between variables?
 
 Since BMI and alcohol consumption were not normally distributed, correlations between the numeric variables were assessed with the Spearman correlation.
 
 ```{r correlations-snore}
+# Numeric variables only
 num <- snore[, c("age", "weight", "height", "alcool", "bmi")]
 
+# Spearman correlation matrix
 round(cor(num, method = "spearman"), 2)
 
+# Rho and p-value for each pair of variables
 pairs_list <- combn(names(num), 2)
 results <- t(apply(pairs_list, 2, function(v) {
   test <- cor.test(num[[v[1]]], num[[v[2]]], method = "spearman", exact = FALSE)
@@ -141,7 +160,7 @@ results <- t(apply(pairs_list, 2, function(v) {
 }))
 results
 
+# Scatter plot of each pair
 pairs(num)
 ```
-
 Spearman correlations between numeric variables showed a very strong positive correlation between weight and height (rho = 0.93, p < 0.05). BMI was also correlated with weight (rho = 0.54, p < 0.05) and height (rho = 0.30, p < 0.05), but these correlations are expected since BMI is computed from both variables. Age and alcohol consumption were not correlated with any other variable (p > 0.05). These conclusions remain unchanged after a Bonferroni correction for the 10 tests performed (threshold p < 0.005). The almost perfect alignment between weight and height is unusual for human data and suggests that this data set may have been partly simulated.
