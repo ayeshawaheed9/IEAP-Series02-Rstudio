@@ -13,7 +13,22 @@ View our GitHub repository
 
 ## Team Workflow Strategy Using Git
 
+We decided to create separate branches for each section of the assignment so that we could work independently without interfering with each other’s work.
+
+Each subsection was placed in a separate `.qmd` sub-document to make collaboration easier. The sub-documents were organized into folders according to their sections, keeping the project structure clean and easy for both team members to navigate.
+
+We also added each other as reviewers on Pull Requests so that we could review each other’s code, identify mistakes, and suggest improvements before merging. Before merging the branches, we rendered the main QMD document to check that all sections worked correctly together.
+
 ## Challenges Encountered and Lessons Learned
+
+Some additional restructuring was done after the creation of branches so they had to be updated from the main branch before we could continue working on them.
+This was done by taking a pull from the main branch and merging it in the required branch. 
+
+Another challenge was making sure that each sub-document could be rendered both independently and as part of the main document. This required loading the necessary libraries and data within each file and carefully managing the file paths so that they worked correctly in both cases.
+
+During the Pull Request reviews, comments were added to point out issues and areas that needed improvement. 
+
+The identified issues were discussed, and the requested changes were made before the Pull Requests were merged. This helped us recheck the code, fix errors, and ensure that the final sections were consistent and worked correctly together.
 
 # Section 2: Statistical Tests
 
