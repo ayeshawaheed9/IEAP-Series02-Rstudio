@@ -1,0 +1,24 @@
+#### Are snorers fatter?
+
+```{r normality-bmi-snore}
+shapiro.test(snore$bmi[snore$snore == "O"])
+shapiro.test(snore$bmi[snore$snore == "N"])
+```
+
+Normality of BMI was rejected in both groups (p < 0.05), so snorers and non-snorers were compared with the Mann-Whitney test.
+
+```{r test-bmi-snore}
+tapply(snore$bmi, snore$snore, median)
+wilcox.test(bmi ~ snore, data = snore)
+```
+
+```{r plot-bmi-snore}
+ggplot(snore, aes(x = snore, y = bmi)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 0.1, height = 0, alpha = 0.5) +
+  scale_x_discrete(labels = c("N" = "Non-snorers", "O" = "Snorers")) +
+  labs(title = "BMI of snorers and non-snorers", x = "", y = "BMI (kg/m²)") +
+  theme_bw()
+```
+
+Snorers did not have a higher BMI than non-snorers (median 28.1 kg/m² in both groups, Mann-Whitney test, p > 0.05). The data do not confirm the stereotype that snorers are fatter.
