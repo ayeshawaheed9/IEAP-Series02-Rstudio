@@ -70,4 +70,30 @@ ggplot(snore, aes(x = snore, fill = tabac)) +
   theme_bw()
 ```
 
-Snorers did not smoke more than non-snorers (57.1% vs 67.7% of smokers, chi-squared test, p > 0.05). The data do not confirm the stereotype that snorers smoke more.
+Snorers did not smoke more than non-snorers (57.1% vs 67.7% of smokers, chi-squared test, p > 0.05). The data do not confirm the stereotype that snorers smoke more
+
+
+#### Are men fatter?
+
+```{r normality-bmi-sex}
+shapiro.test(snore$bmi[snore$sex == "H"])
+shapiro.test(snore$bmi[snore$sex == "F"])
+```
+
+Normality of BMI was rejected in both groups (p < 0.05), so men and women were compared with the Mann-Whitney test.
+
+```{r test-bmi-sex}
+tapply(snore$bmi, snore$sex, median)
+wilcox.test(bmi ~ sex, data = snore)
+```
+
+```{r plot-bmi-sex}
+ggplot(snore, aes(x = sex, y = bmi)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 0.1, height = 0, alpha = 0.5) +
+  scale_x_discrete(labels = c("F" = "Women", "H" = "Men")) +
+  labs(title = "BMI of men and women", x = "", y = "BMI (kg/m²)") +
+  theme_bw()
+```
+
+Men did not have a higher BMI than women (median 28.1 vs 27.7 kg/m², Mann-Whitney test, p > 0.05). The data do not confirm the stereotype that men are fatter
