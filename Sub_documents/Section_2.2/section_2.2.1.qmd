@@ -1,23 +1,52 @@
+#### Loading and exploring the data
+
 ```{r setup-libraries}
+# Load the tidyverse
 library(tidyverse)
 ```
 
 ```{r load-prepost}
+# Read the data file
 prepost <- read.csv("data/PrePost.csv")
+
+# Names of the variables
 names(prepost)
+
+# First rows, summary statistics and number of rows
 head(prepost)
 summary(prepost)
 nrow(prepost)
 ```
 
 ```{r look-prepost}
+# Display all rows to check how the data are ordered
 prepost
+
+# Number of measures at each time point
 table(prepost$time)
 ```
+
+The file contains 16 rows, 8 measures Before and 8 measures After rehabilitation, which corresponds to 8 patients. There is no patient identifier, and within each group the values are sorted in increasing order.
+
+#### What are the measured variables, and what do they measure?
+
+The file contains two variables. "perf" is a performance measure taken on patients with cardiac conditions, but the data file does not specify what it measures exactly. "time" indicates when the measure was taken, before or after the rehabilitation training.
+
+#### What are the units?
+
+The unit of "perf" is not specified in the data file. "time" is a categorical variable and has no unit.
+
+#### What are the possible values?
+
+The observed values of "perf" range from 125 to 148. "time" takes two values, Before and After.
+
+#### What are the expected changes over rehabilitation?
+
+Assuming that higher values of `perf` mean better performance, `perf` is expected to increase after rehabilitation. Since the nature of `perf` is not specified, this expected change is an assumption.
+
+#### Summary table
 
 | Variable | Description | Unit | Possible values | Expected change |
 |----------|-------------|------|-----------------|-----------------|
 | perf | Performance measure (exact nature not specified in the data file) | not specified | observed 125 to 148 | increase after rehabilitation, assuming higher values mean better performance |
 | time | Moment of the measurement | none | Before, After | not applicable |
-
-The file contains 16 rows, 8 measures Before and 8 measures After rehabilitation, which corresponds to 8 patients. There is no patient identifier, and within each group the values are sorted in increasing order. The data file does not specify what perf measures nor its unit, so the expected change is an assumption.
