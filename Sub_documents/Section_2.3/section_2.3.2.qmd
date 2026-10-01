@@ -22,3 +22,52 @@ ggplot(snore, aes(x = snore, y = bmi)) +
 ```
 
 Snorers did not have a higher BMI than non-snorers (median 28.1 kg/m² in both groups, Mann-Whitney test, p > 0.05). The data do not confirm the stereotype that snorers are fatter.
+
+
+#### Do snorers drink or smoke more?
+
+```{r normality-alcool-snore}
+shapiro.test(snore$alcool[snore$snore == "O"])
+shapiro.test(snore$alcool[snore$snore == "N"])
+```
+
+Normality of alcohol consumption was rejected in both groups (p < 0.05), so snorers and non-snorers were compared with the Mann-Whitney test.
+
+```{r test-alcool-snore}
+tapply(snore$alcool, snore$snore, median)
+wilcox.test(alcool ~ snore, data = snore)
+```
+
+```{r plot-alcool-snore}
+ggplot(snore, aes(x = snore, y = alcool)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 0.1, height = 0, alpha = 0.5) +
+  scale_x_discrete(labels = c("N" = "Non-snorers", "O" = "Snorers")) +
+  labs(title = "Alcohol consumption of snorers and non-snorers", x = "", y = "Alcohol (unit not specified)") +
+  theme_bw()
+```
+
+Snorers drank significantly more alcohol than non-snorers (median 4 vs 0, Mann-Whitney test, p < 0.05). The data confirm the stereotype that snorers drink more.
+
+Since both variables are categorical, smoking was compared between snorers and non-snorers with a chi-squared test, after checking that all expected counts were at least 5.
+
+```{r test-tabac-snore}
+tab_snore <- table(snore$snore, snore$tabac, dnn = c("snore", "tabac"))
+tab_snore
+round(prop.table(tab_snore, margin = 1) * 100, 1)
+test_snore <- chisq.test(tab_snore)
+test_snore$expected
+test_snore
+```
+
+```{r plot-tabac-snore}
+ggplot(snore, aes(x = snore, fill = tabac)) +
+  geom_bar(position = "fill", color = "black") +
+  scale_x_discrete(labels = c("N" = "Non-snorers", "O" = "Snorers")) +
+  scale_fill_grey(start = 0.9, end = 0.4, labels = c("N" = "Non-smoker", "O" = "Smoker")) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "Proportion of smokers among snorers and non-snorers", x = "", y = "Proportion", fill = "") +
+  theme_bw()
+```
+
+Snorers did not smoke more than non-snorers (57.1% vs 67.7% of smokers, chi-squared test, p > 0.05). The data do not confirm the stereotype that snorers smoke more.
