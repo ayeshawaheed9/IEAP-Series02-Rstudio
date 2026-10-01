@@ -1,0 +1,19 @@
+```{r look-snore-raw}
+readLines("data/snore.txt", n = 5)
+```
+
+```{r load-snore}
+snore <- read.delim("data/snore.txt")
+str(snore)
+summary(snore)
+table(snore$sex)
+table(snore$snore)
+table(snore$tabac)
+```
+
+```{r compute-bmi}
+snore$bmi <- snore$weight / (snore$height / 100)^2
+summary(snore$bmi)
+```
+
+The file contains 100 people and 7 variables, with no missing values: age (years), weight (kg), height (cm), alcool (unit not specified), sex (H = man, F = woman), snore (O = yes, N = no) and tabac (O = smoker, N = non-smoker). Units of weight and height are not given but were deduced from the range of values. The sample includes 75 men and 25 women, 35 snorers and 64 smokers. Since weight depends on height, corpulence was assessed with the body mass index (BMI = weight / height²).
