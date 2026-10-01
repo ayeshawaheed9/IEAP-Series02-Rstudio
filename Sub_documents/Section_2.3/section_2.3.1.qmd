@@ -1,0 +1,42 @@
+#### Loading the data
+
+```{r setup-2-3-1}
+# Load the tidyverse 
+library(tidyverse)
+
+# Data path, works alone or from the main document
+data_dir <- if (dir.exists("data")) "data" else "../../data"
+```
+
+```{r look-snore-raw}
+# Look at the raw file to identify the separator and the header
+readLines(file.path(data_dir, "snore.txt"), n = 5)
+```
+
+```{r load-snore}
+# Read the tab-separated file
+snore <- read.delim(file.path(data_dir, "snore.txt"))
+
+# Type of each variable and summary statistics
+str(snore)
+summary(snore)
+
+# Number of people in each category
+table(snore$sex)
+table(snore$snore)
+table(snore$tabac)
+```
+
+#### Description of the data
+
+The file contains 100 people and 7 variables, with no missing values: age (years), weight (kg), height (cm), alcool (unit not specified), sex (H = man, F = woman), snore (O = yes, N = no) and tabac (O = smoker, N = non-smoker). Units of weight and height are not given but were deduced from the range of values. The sample includes 75 men and 25 women, 35 snorers and 64 smokers.
+
+#### Measure of corpulence
+
+Since weight depends on height, corpulence was assessed with the body mass index (BMI = weight / height²).
+
+```{r compute-bmi}
+# BMI in kg/m², with height converted from cm to m
+snore$bmi <- snore$weight / (snore$height / 100)^2
+summary(snore$bmi)
+```
