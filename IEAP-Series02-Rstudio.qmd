@@ -4,12 +4,12 @@ author:
   - Ayesha Waheed
   - Martin Pigeau
 date: "10-02-2026"
-format: html
+format: typst
 ---
 ## GitHub Repository
 
 View our GitHub repository
-<https://github.com/ayeshawaheed9/Series02-Rstudio>
+<https://github.com/ayeshawaheed9/IEAP-Series02-RStudio>
 
 ## Team Workflow Strategy Using Git
 
