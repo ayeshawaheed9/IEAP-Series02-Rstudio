@@ -78,3 +78,30 @@ The following checklist was used to ensure that all grading criteria were met an
 - [x] Master QMD was checked after merging all sections.
 - [x] Final document was rendered and checked.
 - [x] All required files and sections were present and correctly structured.
+
+
+## Data sources
+
+The data files `PrePost.csv` and `snore.txt` were provided by the course instructor and downloaded from the course Moodle page (access restricted to enrolled students): <https://moodle.umontpellier.fr/mod/assign/view.php?id=995977>
+
+## References
+
+Built In. Parametric vs. non-parametric tests. <https://builtin.com/data-science/parametric-vs-nonparametric>
+
+GeeksforGeeks. Normal distribution. <https://www.geeksforgeeks.org/data-science/mathematics-probability-distributions-set-3-normal-distribution>
+
+NIST/SEMATECH. e-Handbook of Statistical Methods. <https://www.itl.nist.gov/div898/handbook/prc/section2/prc2.htm>
+
+OpenStax. *Introductory Statistics 2e*. <https://openstax.org/books/introductory-statistics-2e> (sections 9.2 and 9.4 for type I and type II errors and p-values)
+
+PubMed Central. Article on paired and unpaired tests. <https://pmc.ncbi.nlm.nih.gov/articles/PMC2881615/>
+
+R Core Team. (2026). *R: A language and environment for statistical computing*. R Foundation for Statistical Computing. <https://doi.org/10.32614/R.manuals>
+
+ScienceDirect Topics. Statistical test. <https://www.sciencedirect.com/topics/social-sciences/statistical-test>
+
+Statology. Assumptions of parametric tests. <https://www.statology.org/parametric-tests-assumptions>
+
+Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., … Yutani, H. (2019). Welcome to the tidyverse. *Journal of Open Source Software*, 4(43), 1686. <https://doi.org/10.21105/joss.01686>
+
+World Health Organization. (2000). *Obesity: Preventing and managing the global epidemic. Report of a WHO consultation* (WHO Technical Report Series No. 894). World Health Organization. <https://apps.who.int/iris/handle/10665/42330>
