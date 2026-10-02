@@ -30,11 +30,13 @@ table(snore$tabac)
 #### Description of the data
 
 The file contains 100 people and 7 variables, with no missing values: age (years), weight (kg), height (cm), alcool (unit not specified), sex (H = man, F = woman), snore (O = yes, N = no) and tabac (O = smoker, N = non-smoker). Units of weight and height are not given but were deduced from the range of values. The sample includes 75 men and 25 women, 35 snorers and 64 smokers.
-**Reference:** data provided by the course instructor (see Data sources).
+**Reference:** data provided by the course instructor on the course Moodle page: <https://moodle.umontpellier.fr/mod/assign/view.php?id=995977>
+
+
 #### Measure of corpulence
 
 Since weight depends on height, corpulence was assessed with the body mass index (BMI = weight / height²).
-**Reference:** World Health Organization (2000).
+**Reference:** World Health Organization (2000): <https://apps.who.int/iris/handle/10665/42330>
 
 ```{r compute-bmi}
 # BMI in kg/m², with height converted from cm to m

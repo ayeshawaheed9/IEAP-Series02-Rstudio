@@ -27,7 +27,8 @@ table(prepost$time)
 ```
 
 The file contains 16 rows, 8 measures Before and 8 measures After rehabilitation, which corresponds to 8 patients. There is no patient identifier, and within each group the values are sorted in increasing order.
-**Reference:** data provided by the course instructor (see Data sources). Analyses were performed with R (R Core Team, 2026) and the tidyverse (Wickham et al., 2019).
+**Reference:** data provided by the course instructor on the course Moodle page: <https://moodle.umontpellier.fr/mod/assign/view.php?id=995977>. Analyses were performed with R (R Core Team, 2026): <https://doi.org/10.32614/R.manuals> and the tidyverse (Wickham et al., 2019): <https://doi.org/10.21105/joss.01686>
+
 
 #### What are the measured variables, and what do they measure?
 
