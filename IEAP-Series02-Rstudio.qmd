@@ -1,0 +1,107 @@
+---
+title: "Series 02 - RStudio"
+author:
+  - Ayesha Waheed
+  - Martin Pigeau
+date: "10-02-2026"
+format: typst
+---
+## GitHub Repository
+
+View our GitHub repository
+<https://github.com/ayeshawaheed9/IEAP-Series02-RStudio>
+
+## Team Workflow Strategy Using Git
+
+We decided to create separate branches for each section of the assignment so that we could work independently without interfering with each other’s work.
+
+Each subsection was placed in a separate `.qmd` sub-document to make collaboration easier. The sub-documents were organized into folders according to their sections, keeping the project structure clean and easy for both team members to navigate.
+
+We also added each other as reviewers on Pull Requests so that we could review each other’s code, identify mistakes, and suggest improvements before merging. Before merging the branches, we rendered the main QMD document to check that all sections worked correctly together.
+
+## Challenges Encountered and Lessons Learned
+
+Some additional restructuring was done after the creation of branches so they had to be updated from the main branch before we could continue working on them.
+This was done by taking a pull from the main branch and merging it in the required branch. 
+
+Another challenge was making sure that each sub-document could be rendered both independently and as part of the main document. This required loading the necessary libraries and data within each file and carefully managing the file paths so that they worked correctly in both cases.
+
+During the Pull Request reviews, comments were added to point out issues and areas that needed improvement. 
+
+The identified issues were discussed, and the requested changes were made before the Pull Requests were merged. This helped us recheck the code, fix errors, and ensure that the final sections were consistent and worked correctly together.
+
+# Section 2: Statistical Tests
+
+## 2.1 Make clear what is a statistical test, and when to use it.
+
+{{< include Sub_documents/Section_2.1/section_2.1.qmd >}}
+
+## 2.2 Effect of treatment over time
+
+### 2.2.1 The data
+
+{{< include Sub_documents/Section_2.2/section_2.2.1.qmd >}}
+
+### 2.2.2 The analysis
+
+{{< include Sub_documents/Section_2.2/section_2.2.2.qmd >}}
+
+## 2.3 Testing some stereotypes
+
+### 2.3.1 The data
+
+{{< include Sub_documents/Section_2.3/section_2.3.1.qmd >}}
+
+### 2.3.2 The analysis
+
+{{< include Sub_documents/Section_2.3/section_2.3.2.qmd >}}
+
+
+## Grading Criteria Checklist
+
+The following checklist was used to ensure that all grading criteria were met and that our Git workflow was properly followed.
+
+### Project Structure
+- [x] Clear and complete `README.md` and `LICENSE` files included.
+- [x] Complete `IEAP-Series02-Rstudio.qmd` file and corresponding PDF included.
+- [x] Clean folder structure with subfolders and sub-documents.
+- [x] Sub-documents used so team members could work on different sections simultaneously.
+
+### Git Workflow
+- [x] Separate branches created for different sections.
+- [x] Meaningful commit messages used, with at least one commit per question.
+- [x] Changes pushed regularly to GitHub.
+- [x] Team members reviewed each other's Pull Requests to recheck the work before merging.
+- [x] Final branches and merged code were checked to ensure no work was lost.
+
+### Final Check
+- [x] Master QMD was checked after merging all sections.
+- [x] Final document was rendered and checked.
+- [x] All required files and sections were present and correctly structured.
+
+
+## Data sources
+
+The data files `PrePost.csv` and `snore.txt` were provided by the course instructor and downloaded from the course Moodle page (access restricted to enrolled students): <https://moodle.umontpellier.fr/mod/assign/view.php?id=995977>
+
+## References
+
+Built In. Parametric vs. non-parametric tests. <https://builtin.com/data-science/parametric-vs-nonparametric>
+
+GeeksforGeeks. Normal distribution. <https://www.geeksforgeeks.org/data-science/mathematics-probability-distributions-set-3-normal-distribution>
+
+NIST/SEMATECH. e-Handbook of Statistical Methods. <https://www.itl.nist.gov/div898/handbook/prc/section2/prc2.htm>
+
+OpenStax. *Introductory Statistics 2e*. <https://openstax.org/books/introductory-statistics-2e> (sections 9.2 and 9.4 for type I and type II errors and p-values)
+
+PubMed Central. Article on paired and unpaired tests. <https://pmc.ncbi.nlm.nih.gov/articles/PMC2881615/>
+
+R Core Team. (2026). *R: A language and environment for statistical computing*. R Foundation for Statistical Computing. <https://doi.org/10.32614/R.manuals>
+
+ScienceDirect Topics. Statistical test. <https://www.sciencedirect.com/topics/social-sciences/statistical-test>
+
+Statology. Assumptions of parametric tests. <https://www.statology.org/parametric-tests-assumptions>
+
+Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., … Yutani, H. (2019). Welcome to the tidyverse. *Journal of Open Source Software*, 4(43), 1686. <https://doi.org/10.21105/joss.01686>
+
+World Health Organization. (2000). *Obesity: Preventing and managing the global epidemic. Report of a WHO consultation* (WHO Technical Report Series No. 894). World Health Organization. <https://apps.who.int/iris/handle/10665/42330>

@@ -18,7 +18,7 @@
 
 A **normal distribution** is a symmetric, bell-shaped distribution where most values are close to the mean.
 
-**Reference:** <https://www.geeksforgeeks.org/data-science/mathematics-probability-distributions-set-3-normal-distribution>
+**Reference:**<https://www.geeksforgeeks.org/data-science/mathematics-probability-distributions-set-3-normal-distribution>
 
 ## 4. What is a statistical test?
 
