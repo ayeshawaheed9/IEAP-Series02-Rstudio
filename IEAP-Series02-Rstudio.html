@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ayesha Waheed">
+<meta name="author" content="Martin Pigeau">
+<meta name="dcterms.date" content="2026-10-02">
+
+<title>Series 02 - RStudio</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="IEAP-Series02-Rstudio_files/libs/clipboard/clipboard.min.js"></script>
+<script src="IEAP-Series02-Rstudio_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="IEAP-Series02-Rstudio_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="IEAP-Series02-Rstudio_files/libs/quarto-html/popper.min.js"></script>
+<script src="IEAP-Series02-Rstudio_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="IEAP-Series02-Rstudio_files/libs/quarto-html/anchor.min.js"></script>
+<link href="IEAP-Series02-Rstudio_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="IEAP-Series02-Rstudio_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="IEAP-Series02-Rstudio_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="IEAP-Series02-Rstudio_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="IEAP-Series02-Rstudio_files/libs/bootstrap/bootstrap-efbb37e9afcc02144ebbc7afd12a776f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Series 02 - RStudio</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ayesha Waheed </p>
+             <p>Martin Pigeau </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 2, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="github-repository" class="level2">
+<h2 class="anchored" data-anchor-id="github-repository">GitHub Repository</h2>
+<p>View our GitHub repository <a href="https://github.com/ayeshawaheed9/Series02-Rstudio" class="uri">https://github.com/ayeshawaheed9/Series02-Rstudio</a></p>
+</section>
+<section id="team-workflow-strategy-using-git" class="level2">
+<h2 class="anchored" data-anchor-id="team-workflow-strategy-using-git">Team Workflow Strategy Using Git</h2>
+<p>We decided to create separate branches for each section of the assignment so that we could work independently without interfering with each other’s work.</p>
+<p>Each subsection was placed in a separate <code>.qmd</code> sub-document to make collaboration easier. The sub-documents were organized into folders according to their sections, keeping the project structure clean and easy for both team members to navigate.</p>
+<p>We also added each other as reviewers on Pull Requests so that we could review each other’s code, identify mistakes, and suggest improvements before merging. Before merging the branches, we rendered the main QMD document to check that all sections worked correctly together.</p>
+</section>
+<section id="challenges-encountered-and-lessons-learned" class="level2">
+<h2 class="anchored" data-anchor-id="challenges-encountered-and-lessons-learned">Challenges Encountered and Lessons Learned</h2>
+<p>Some additional restructuring was done after the creation of branches so they had to be updated from the main branch before we could continue working on them. This was done by taking a pull from the main branch and merging it in the required branch.</p>
+<p>Another challenge was making sure that each sub-document could be rendered both independently and as part of the main document. This required loading the necessary libraries and data within each file and carefully managing the file paths so that they worked correctly in both cases.</p>
+<p>During the Pull Request reviews, comments were added to point out issues and areas that needed improvement.</p>
+<p>The identified issues were discussed, and the requested changes were made before the Pull Requests were merged. This helped us recheck the code, fix errors, and ensure that the final sections were consistent and worked correctly together.</p>
+</section>
+<section id="section-2-statistical-tests" class="level1">
+<h1>Section 2: Statistical Tests</h1>
+<section id="make-clear-what-is-a-statistical-test-and-when-to-use-it." class="level2">
+<h2 class="anchored" data-anchor-id="make-clear-what-is-a-statistical-test-and-when-to-use-it.">2.1 Make clear what is a statistical test, and when to use it.</h2>
+</section>
+<section id="what-is-a-median-a-mean" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-median-a-mean">1. What is a median? A mean?</h2>
+<p><strong>Median:</strong> The middle value of a dataset when the values are arranged in order.</p>
+<p><strong>Mean:</strong> It is the average of all the values, calculated by adding them together and dividing by the number of values.</p>
+<p><strong>Reference:</strong> <a href="https://openstax.org/books/introductory-statistics-2e" class="uri">https://openstax.org/books/introductory-statistics-2e</a></p>
+</section>
+<section id="what-is-a-variance-a-standard-deviation" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-variance-a-standard-deviation">2. What is a variance? A standard deviation?</h2>
+<p><strong>Variance:</strong> A measure of how the values spread out around the mean.</p>
+<p><strong>Standard deviation:</strong> The square root of the variance. It shows the typical spread of the data around the mean.</p>
+<p><strong>Reference:</strong> <a href="https://openstax.org/books/introductory-statistics-2e" class="uri">https://openstax.org/books/introductory-statistics-2e</a></p>
+</section>
+<section id="what-is-a-normal-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-normal-distribution">3. What is a normal distribution?</h2>
+<p>A <strong>normal distribution</strong> is a symmetric, bell-shaped distribution where most values are close to the mean.</p>
+<p><strong>Reference:</strong> <a href="https://www.geeksforgeeks.org/data-science/mathematics-probability-distributions-set-3-normal-distribution" class="uri">https://www.geeksforgeeks.org/data-science/mathematics-probability-distributions-set-3-normal-distribution</a></p>
+</section>
+<section id="what-is-a-statistical-test" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-statistical-test">4. What is a statistical test?</h2>
+<p>A <strong>statistical test</strong> is a method applied to research data to determine the importance of results and assess if those results occurred by chance or not, allowing researchers to draw conclusions.</p>
+<p><strong>Reference:</strong> <a href="https://www.sciencedirect.com/topics/social-sciences/statistical-test" class="uri">https://www.sciencedirect.com/topics/social-sciences/statistical-test</a></p>
+</section>
+<section id="when-to-use-a-statistical-test" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-a-statistical-test">5. When to use a statistical test?</h2>
+<p>We use a statistical test when we want to determine whether an observed result is likely to be due to a real effect or to random variation or by chance.</p>
+<p><strong>Reference:</strong> <a href="https://www.sciencedirect.com/topics/social-sciences/statistical-test" class="uri">https://www.sciencedirect.com/topics/social-sciences/statistical-test</a></p>
+</section>
+<section id="what-is-a-parametric-test-a-non-parametric-test" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-parametric-test-a-non-parametric-test">6. What is a parametric test? A non-parametric test?</h2>
+<p><strong>Parametric test:</strong> A test that makes assumptions about the distribution of the data, such as normal distribution.</p>
+<p><strong>Non-parametric test:</strong> A test that makes fewer assumptions and uses medians and rankings for the data.</p>
+<p><strong>Reference:</strong> <a href="https://builtin.com/data-science/parametric-vs-nonparametric" class="uri">https://builtin.com/data-science/parametric-vs-nonparametric</a></p>
+</section>
+<section id="what-are-the-assumptions-of-parametric-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-the-assumptions-of-parametric-tests">7. What are the assumptions of parametric tests?</h2>
+<p>Common assumptions are:</p>
+<ol type="1">
+<li><p>Normality – Data in each group should be normally distributed.</p></li>
+<li><p>Equal Variance – Data in each group should have approximately equal variance.</p></li>
+<li><p>Independence – Data in each group should be randomly and independently sampled from the population.</p></li>
+<li><p>No Outliers – There should be no extreme outliers.</p></li>
+</ol>
+<p><strong>Reference:</strong> <a href="https://www.statology.org/parametric-tests-assumptions" class="uri">https://www.statology.org/parametric-tests-assumptions</a></p>
+</section>
+<section id="what-are-the-assumptions-of-non-parametric-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-the-assumptions-of-non-parametric-tests">8. What are the assumptions of non-parametric tests?</h2>
+<p>Non-parametric tests generally require fewer assumptions, but the observations still need to be independent, randomly sampled (collected appropriately) and the data must be suitable for the chosen test.</p>
+<p><strong>Reference:</strong> <a href="https://www.itl.nist.gov/div898/handbook/prc/section2/prc2.htm" class="uri">https://www.itl.nist.gov/div898/handbook/prc/section2/prc2.htm</a></p>
+</section>
+<section id="what-is-a-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-p-value">9. What is a p-value?</h2>
+<p>A <strong>p-value</strong> tells us how likely the observed result is if there is no real effect.</p>
+<p>A small p-value suggests that the result is less likely to be due to chance.</p>
+<p><strong>Reference:</strong> <a href="https://openstax.org/books/introductory-statistics-2e/pages/9-4-rare-events-the-sample-decision-and-conclusion" class="uri">https://openstax.org/books/introductory-statistics-2e/pages/9-4-rare-events-the-sample-decision-and-conclusion</a></p>
+</section>
+<section id="what-is-the-risk-of-error-when-using-a-statistical-test" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-risk-of-error-when-using-a-statistical-test">10. What is the risk of error when using a statistical test?</h2>
+<p>There are two main errors:</p>
+<ul>
+<li><strong>Type I error:</strong> Rejecting the null hypothesis when it is actually true.</li>
+<li><strong>Type II error:</strong> Not rejecting the null hypothesis when it is actually false.</li>
+</ul>
+<p><strong>Reference:</strong> <a href="https://openstax.org/books/introductory-statistics-2e/pages/9-2-outcomes-and-the-type-i-and-type-ii-errors" class="uri">https://openstax.org/books/introductory-statistics-2e/pages/9-2-outcomes-and-the-type-i-and-type-ii-errors</a></p>
+</section>
+<section id="what-is-the-difference-between-a-paired-and-an-unpaired-test" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-difference-between-a-paired-and-an-unpaired-test">11. What is the difference between a paired and an unpaired test?</h2>
+<p><strong>Paired test:</strong> Used when the observations are related, such as measurements taken from the same person before and after an intervention.</p>
+<p><strong>Unpaired test:</strong> Used when the observations come from two independent groups.</p>
+<p><strong>Reference:</strong> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2881615/" class="uri">https://pmc.ncbi.nlm.nih.gov/articles/PMC2881615/</a></p>
+</section>
+<section id="effect-of-treatment-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="effect-of-treatment-over-time">2.2 Effect of treatment over time</h2>
+<section id="the-data" class="level3">
+<h3 class="anchored" data-anchor-id="the-data">2.2.1 The data</h3>
+<section id="loading-and-exploring-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="loading-and-exploring-the-data">Loading and exploring the data</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the tidyverse</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data file</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>prepost <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/PrePost.csv"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Names of the variables</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(prepost)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "perf" "time"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First rows, summary statistics and number of rows</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(prepost)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  perf   time
+1  125 Before
+2  130 Before
+3  132 Before
+4  135 Before
+5  136 Before
+6  138 Before</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(prepost)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      perf              time   
+ Min.   :125.0   Length   :16  
+ 1st Qu.:132.0   N.unique : 2  
+ Median :136.0   N.blank  : 0  
+ Mean   :136.4   Min.nchar: 5  
+ 3rd Qu.:140.2   Max.nchar: 6  
+ Max.   :148.0                 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(prepost)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display all rows to check how the data are ordered</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>prepost</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   perf   time
+1   125 Before
+2   130 Before
+3   132 Before
+4   135 Before
+5   136 Before
+6   138 Before
+7   140 Before
+8   145 Before
+9   127  After
+10  132  After
+11  133  After
+12  136  After
+13  139  After
+14  141  After
+15  145  After
+16  148  After</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of measures at each time point</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(prepost<span class="sc">$</span>time)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ After Before 
+     8      8 </code></pre>
+</div>
+</div>
+<p>The file contains 16 rows, 8 measures Before and 8 measures After rehabilitation, which corresponds to 8 patients. There is no patient identifier, and within each group the values are sorted in increasing order.</p>
+</section>
+<section id="what-are-the-measured-variables-and-what-do-they-measure" class="level4">
+<h4 class="anchored" data-anchor-id="what-are-the-measured-variables-and-what-do-they-measure">What are the measured variables, and what do they measure?</h4>
+<p>The file contains two variables. “perf” is a performance measure taken on patients with cardiac conditions, but the data file does not specify what it measures exactly. “time” indicates when the measure was taken, before or after the rehabilitation training.</p>
+</section>
+<section id="what-are-the-units" class="level4">
+<h4 class="anchored" data-anchor-id="what-are-the-units">What are the units?</h4>
+<p>The unit of “perf” is not specified in the data file. “time” is a categorical variable and has no unit.</p>
+</section>
+<section id="what-are-the-possible-values" class="level4">
+<h4 class="anchored" data-anchor-id="what-are-the-possible-values">What are the possible values?</h4>
+<p>The observed values of “perf” range from 125 to 148. “time” takes two values, Before and After.</p>
+</section>
+<section id="what-are-the-expected-changes-over-rehabilitation" class="level4">
+<h4 class="anchored" data-anchor-id="what-are-the-expected-changes-over-rehabilitation">What are the expected changes over rehabilitation?</h4>
+<p>Assuming that higher values of <code>perf</code> mean better performance, <code>perf</code> is expected to increase after rehabilitation. Since the nature of <code>perf</code> is not specified, this expected change is an assumption.</p>
+</section>
+<section id="summary-table" class="level4">
+<h4 class="anchored" data-anchor-id="summary-table">Summary table</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 9%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+<th>Unit</th>
+<th>Possible values</th>
+<th>Expected change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>perf</td>
+<td>Performance measure (exact nature not specified in the data file)</td>
+<td>not specified</td>
+<td>observed 125 to 148</td>
+<td>increase after rehabilitation, assuming higher values mean better performance</td>
+</tr>
+<tr class="even">
+<td>time</td>
+<td>Moment of the measurement</td>
+<td>none</td>
+<td>Before, After</td>
+<td>not applicable</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="the-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="the-analysis">2.2.2 The analysis</h3>
+<section id="does-the-treatment-have-an-effect" class="level4">
+<h4 class="anchored" data-anchor-id="does-the-treatment-have-an-effect">Does the treatment have an effect?</h4>
+<p>Yes, Perf increased significantly after rehabilitation (Wilcoxon signed-rank test, p &lt; 0.05), assuming that the rows are ordered by patient. The comparison, the test and the graph supporting this answer are detailed below.</p>
+</section>
+<section id="what-comparison-are-you-going-to-make" class="level4">
+<h4 class="anchored" data-anchor-id="what-comparison-are-you-going-to-make">What comparison are you going to make?</h4>
+<p>The Before and After values were measured on the same 8 patients, so we compared perf Before and After rehabilitation with a paired comparison. The data file contains no patient identifier, so we assumed that the rows are in the same patient order in both groups.</p>
+</section>
+<section id="which-test-will-you-use-parametric-or-non-parametric" class="level4">
+<h4 class="anchored" data-anchor-id="which-test-will-you-use-parametric-or-non-parametric">Which test will you use? Parametric or non-parametric?</h4>
+<p>For a paired comparison, normality is checked on the differences between the two measures of each patient.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate the Before and After values</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>before <span class="ot">&lt;-</span> prepost<span class="sc">$</span>perf[prepost<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"Before"</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>after  <span class="ot">&lt;-</span> prepost<span class="sc">$</span>perf[prepost<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"After"</span>]</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Shapiro-Wilk test on the differences (After minus Before)</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(after <span class="sc">-</span> before)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  after - before
+W = 0.89896, p-value = 0.2828</code></pre>
+</div>
+</div>
+<p>Normality of the differences was not rejected (p &gt; 0.05), but with only 8 patients the Shapiro-Wilk test has very low power, so we used the non-parametric Wilcoxon signed-rank test.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wilcoxon signed-rank test (paired, non-parametric)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(after, before, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon signed rank exact test
+
+data:  after and before
+V = 36, p-value = 0.007812
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+</section>
+<section id="which-graph-illustrates-the-effect-of-the-treatment" class="level4">
+<h4 class="anchored" data-anchor-id="which-graph-illustrates-the-effect-of-the-treatment">Which graph illustrates the effect of the treatment?</h4>
+<p>A line plot connecting the two measures of each patient shows the individual change, which suits a paired design.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Patient identifier, assuming the same patient order in both groups</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>prepost<span class="sc">$</span>patient <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">times =</span> <span class="dv">2</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Order the time axis: Before then After</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>prepost<span class="sc">$</span>time <span class="ot">&lt;-</span> <span class="fu">factor</span>(prepost<span class="sc">$</span>time, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Before"</span>, <span class="st">"After"</span>))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># One line per patient, from Before to After</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(prepost, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> perf, <span class="at">group =</span> patient)) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Perf before and after rehabilitation"</span>,</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Time"</span>,</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Perf (unit not specified)"</span>) <span class="sc">+</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="IEAP-Series02-Rstudio_files/figure-html/plot-prepost-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Figure: Perf of each patient before and after rehabilitation. Each line connects the two measures of the same patient, assuming that the rows are ordered by patient. All 8 patients show an increase, ranging from 1 to 5 units.</p>
+</section>
+<section id="what-sentence-will-you-write-in-your-thesis-to-explain-your-result" class="level4">
+<h4 class="anchored" data-anchor-id="what-sentence-will-you-write-in-your-thesis-to-explain-your-result">What sentence will you write in your thesis to explain your result?</h4>
+<p>After the rehabilitation program, perf increased significantly in the 8 patients, with a median increase of 2.5 units (Wilcoxon signed-rank test, p &lt; 0.05), assuming that the rows of the data file are ordered by patient.</p>
+<p>This conclusion relies on the assumption that the rows are in the same patient order in both groups. Since the values of each group are sorted in increasing order, this pairing could not be verified, and sorting alone would produce positive differences. The original data with a patient identifier would be needed to confirm this result. Moreover, since the data only include measures before and after the program, we cannot assess whether the effect is lasting.</p>
+</section>
+</section>
+</section>
+<section id="testing-some-stereotypes" class="level2">
+<h2 class="anchored" data-anchor-id="testing-some-stereotypes">2.3 Testing some stereotypes</h2>
+<section id="the-data-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-data-1">2.3.1 The data</h3>
+<section id="loading-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="loading-the-data">Loading the data</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the tidyverse </span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Data path, works alone or from the main document</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>data_dir <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">dir.exists</span>(<span class="st">"data"</span>)) <span class="st">"data"</span> <span class="cf">else</span> <span class="st">"../../data"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the raw file to identify the separator and the header</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">readLines</span>(<span class="fu">file.path</span>(data_dir, <span class="st">"snore.txt"</span>), <span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "age\tweight\theight\talcool\tsex\tsnore\ttabac"
+[2] "47\t71\t158\t0\tH\tN\tO"                       
+[3] "56\t58\t164\t7\tH\tO\tN"                       
+[4] "46\t116\t208\t3\tH\tN\tO"                      
+[5] "70\t96\t186\t3\tH\tN\tO"                       </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the tab-separated file</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>snore <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="fu">file.path</span>(data_dir, <span class="st">"snore.txt"</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Type of each variable and summary statistics</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(snore)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   100 obs. of  7 variables:
+ $ age   : int  47 56 46 70 51 46 40 46 49 39 ...
+ $ weight: int  71 58 116 96 91 98 112 77 76 119 ...
+ $ height: int  158 164 208 186 195 188 193 165 164 196 ...
+ $ alcool: int  0 7 3 3 2 0 5 0 0 3 ...
+ $ sex   : chr  "H" "H" "H" "H" ...
+ $ snore : chr  "N" "O" "N" "N" ...
+ $ tabac : chr  "O" "N" "O" "O" ...</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(snore)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      age            weight           height          alcool     
+ Min.   :23.00   Min.   : 42.00   Min.   :158.0   Min.   : 0.00  
+ 1st Qu.:43.00   1st Qu.: 77.00   1st Qu.:166.0   1st Qu.: 0.00  
+ Median :52.00   Median : 95.00   Median :186.0   Median : 2.00  
+ Mean   :52.27   Mean   : 90.41   Mean   :181.1   Mean   : 2.95  
+ 3rd Qu.:62.25   3rd Qu.:107.00   3rd Qu.:194.0   3rd Qu.: 4.25  
+ Max.   :74.00   Max.   :120.00   Max.   :208.0   Max.   :15.00  
+        sex            snore           tabac    
+ Length   :100   Length   :100   Length   :100  
+ N.unique :  2   N.unique :  2   N.unique :  2  
+ N.blank  :  0   N.blank  :  0   N.blank  :  0  
+ Min.nchar:  1   Min.nchar:  1   Min.nchar:  1  
+ Max.nchar:  1   Max.nchar:  1   Max.nchar:  1  
+                                                </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of people in each category</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(snore<span class="sc">$</span>sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ F  H 
+25 75 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(snore<span class="sc">$</span>snore)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ N  O 
+65 35 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(snore<span class="sc">$</span>tabac)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ N  O 
+36 64 </code></pre>
+</div>
+</div>
+</section>
+<section id="description-of-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="description-of-the-data">Description of the data</h4>
+<p>The file contains 100 people and 7 variables, with no missing values: age (years), weight (kg), height (cm), alcool (unit not specified), sex (H = man, F = woman), snore (O = yes, N = no) and tabac (O = smoker, N = non-smoker). Units of weight and height are not given but were deduced from the range of values. The sample includes 75 men and 25 women, 35 snorers and 64 smokers.</p>
+</section>
+<section id="measure-of-corpulence" class="level4">
+<h4 class="anchored" data-anchor-id="measure-of-corpulence">Measure of corpulence</h4>
+<p>Since weight depends on height, corpulence was assessed with the body mass index (BMI = weight / height²).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># BMI in kg/m², with height converted from cm to m</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>snore<span class="sc">$</span>bmi <span class="ot">&lt;-</span> snore<span class="sc">$</span>weight <span class="sc">/</span> (snore<span class="sc">$</span>height <span class="sc">/</span> <span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(snore<span class="sc">$</span>bmi)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  16.20   27.56   28.07   27.22   28.38   32.55 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="the-analysis-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-analysis-1">2.3.2 The analysis</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Libraries, data and BMI, needed when rendered alone</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>data_dir <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">dir.exists</span>(<span class="st">"data"</span>)) <span class="st">"data"</span> <span class="cf">else</span> <span class="st">"../../data"</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>snore <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="fu">file.path</span>(data_dir, <span class="st">"snore.txt"</span>))</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>snore<span class="sc">$</span>bmi <span class="ot">&lt;-</span> snore<span class="sc">$</span>weight <span class="sc">/</span> (snore<span class="sc">$</span>height <span class="sc">/</span> <span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="do-the-data-confirm-the-following-stereotypes" class="level4">
+<h4 class="anchored" data-anchor-id="do-the-data-confirm-the-following-stereotypes">Do the data confirm the following stereotypes?</h4>
+<section id="are-snorers-fatter" class="level5">
+<h5 class="anchored" data-anchor-id="are-snorers-fatter">Are snorers fatter?</h5>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Normality of BMI in each group</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(snore<span class="sc">$</span>bmi[snore<span class="sc">$</span>snore <span class="sc">==</span> <span class="st">"O"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  snore$bmi[snore$snore == "O"]
+W = 0.72636, p-value = 9.81e-07</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(snore<span class="sc">$</span>bmi[snore<span class="sc">$</span>snore <span class="sc">==</span> <span class="st">"N"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  snore$bmi[snore$snore == "N"]
+W = 0.78486, p-value = 2.323e-08</code></pre>
+</div>
+</div>
+<p>Normality of BMI was rejected in both groups (p &lt; 0.05), so snorers and non-snorers were compared with the Mann-Whitney test. Since the distributions had a similar shape in both groups (see figure below), the test was interpreted as a comparison of medians.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Median BMI per group and Mann-Whitney test</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(snore<span class="sc">$</span>bmi, snore<span class="sc">$</span>snore, median)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       N        O 
+28.06892 28.07632 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(bmi <span class="sc">~</span> snore, <span class="at">data =</span> snore)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  bmi by snore
+W = 1128.5, p-value = 0.951
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of BMI by snoring status</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(snore, <span class="fu">aes</span>(<span class="at">x =</span> snore, <span class="at">y =</span> bmi)) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"N"</span> <span class="ot">=</span> <span class="st">"Non-snorers"</span>, <span class="st">"O"</span> <span class="ot">=</span> <span class="st">"Snorers"</span>)) <span class="sc">+</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"BMI of snorers and non-snorers"</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"BMI (kg/m²)"</span>) <span class="sc">+</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="IEAP-Series02-Rstudio_files/figure-html/plot-bmi-snore-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Snorers did not have a higher BMI than non-snorers (median 28.1 kg/m² in both groups, Mann-Whitney test, p &gt; 0.05). The data do not confirm the stereotype that snorers are fatter.</p>
+</section>
+<section id="do-snorers-drink-or-smoke-more" class="level5">
+<h5 class="anchored" data-anchor-id="do-snorers-drink-or-smoke-more">Do snorers drink or smoke more?</h5>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Normality of alcohol consumption in each group</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(snore<span class="sc">$</span>alcool[snore<span class="sc">$</span>snore <span class="sc">==</span> <span class="st">"O"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  snore$alcool[snore$snore == "O"]
+W = 0.90387, p-value = 0.005032</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(snore<span class="sc">$</span>alcool[snore<span class="sc">$</span>snore <span class="sc">==</span> <span class="st">"N"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  snore$alcool[snore$snore == "N"]
+W = 0.76256, p-value = 6.818e-09</code></pre>
+</div>
+</div>
+<p>Normality of alcohol consumption was rejected in both groups (p &lt; 0.05), so snorers and non-snorers were compared with the Mann-Whitney test.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Median alcohol consumption per group and Mann-Whitney test</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(snore<span class="sc">$</span>alcool, snore<span class="sc">$</span>snore, median)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>N O 
+0 4 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(alcool <span class="sc">~</span> snore, <span class="at">data =</span> snore)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  alcool by snore
+W = 788, p-value = 0.008594
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of alcohol consumption by snoring status</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(snore, <span class="fu">aes</span>(<span class="at">x =</span> snore, <span class="at">y =</span> alcool)) <span class="sc">+</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"N"</span> <span class="ot">=</span> <span class="st">"Non-snorers"</span>, <span class="st">"O"</span> <span class="ot">=</span> <span class="st">"Snorers"</span>)) <span class="sc">+</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Alcohol consumption of snorers and non-snorers"</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Alcohol (unit not specified)"</span>) <span class="sc">+</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="IEAP-Series02-Rstudio_files/figure-html/plot-alcool-snore-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Snorers drank significantly more alcohol than non-snorers (median 4 vs 0, Mann-Whitney test, p &lt; 0.05). The data confirm the stereotype that snorers drink more.</p>
+<p>Since both variables are categorical, smoking was compared between snorers and non-snorers with a chi-squared test, after checking that all expected counts were at least 5.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contingency table, row percentages and chi-squared test</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>tab_snore <span class="ot">&lt;-</span> <span class="fu">table</span>(snore<span class="sc">$</span>snore, snore<span class="sc">$</span>tabac, <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"snore"</span>, <span class="st">"tabac"</span>))</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>tab_snore</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     tabac
+snore  N  O
+    N 21 44
+    O 15 20</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(tab_snore, <span class="at">margin =</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     tabac
+snore    N    O
+    N 32.3 67.7
+    O 42.9 57.1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>test_snore <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tab_snore)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>test_snore<span class="sc">$</span>expected</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     tabac
+snore    N    O
+    N 23.4 41.6
+    O 12.6 22.4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>test_snore</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test with Yates' continuity correction
+
+data:  tab_snore
+X-squared = 0.68872, df = 1, p-value = 0.4066</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of smokers by snoring status</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(snore, <span class="fu">aes</span>(<span class="at">x =</span> snore, <span class="at">fill =</span> tabac)) <span class="sc">+</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"N"</span> <span class="ot">=</span> <span class="st">"Non-snorers"</span>, <span class="st">"O"</span> <span class="ot">=</span> <span class="st">"Snorers"</span>)) <span class="sc">+</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_grey</span>(<span class="at">start =</span> <span class="fl">0.9</span>, <span class="at">end =</span> <span class="fl">0.4</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"N"</span> <span class="ot">=</span> <span class="st">"Non-smoker"</span>, <span class="st">"O"</span> <span class="ot">=</span> <span class="st">"Smoker"</span>)) <span class="sc">+</span></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Proportion of smokers among snorers and non-snorers"</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Proportion"</span>, <span class="at">fill =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="IEAP-Series02-Rstudio_files/figure-html/plot-tabac-snore-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Snorers did not smoke more than non-snorers (57.1% vs 67.7% of smokers, chi-squared test, p &gt; 0.05). The data do not confirm the stereotype that snorers smoke more.</p>
+</section>
+<section id="are-men-fatter" class="level5">
+<h5 class="anchored" data-anchor-id="are-men-fatter">Are men fatter?</h5>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Normality of BMI in each sex</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(snore<span class="sc">$</span>bmi[snore<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"H"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  snore$bmi[snore$sex == "H"]
+W = 0.78184, p-value = 3.456e-09</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(snore<span class="sc">$</span>bmi[snore<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"F"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  snore$bmi[snore$sex == "F"]
+W = 0.71462, p-value = 1.154e-05</code></pre>
+</div>
+</div>
+<p>Normality of BMI was rejected in both groups (p &lt; 0.05), so men and women were compared with the Mann-Whitney test.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Median BMI per sex and Mann-Whitney test</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(snore<span class="sc">$</span>bmi, snore<span class="sc">$</span>sex, median)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       F        H 
+27.72748 28.07504 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(bmi <span class="sc">~</span> sex, <span class="at">data =</span> snore)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  bmi by sex
+W = 850, p-value = 0.4884
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of BMI by sex</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(snore, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> bmi)) <span class="sc">+</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"F"</span> <span class="ot">=</span> <span class="st">"Women"</span>, <span class="st">"H"</span> <span class="ot">=</span> <span class="st">"Men"</span>)) <span class="sc">+</span></span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"BMI of men and women"</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"BMI (kg/m²)"</span>) <span class="sc">+</span></span>
+<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="IEAP-Series02-Rstudio_files/figure-html/plot-bmi-sex-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Men did not have a higher BMI than women (median 28.1 vs 27.7 kg/m², Mann-Whitney test, p &gt; 0.05). The data do not confirm the stereotype that men are fatter.</p>
+</section>
+<section id="do-women-smoke-less" class="level5">
+<h5 class="anchored" data-anchor-id="do-women-smoke-less">Do women smoke less?</h5>
+<p>Since both variables are categorical, smoking was compared between men and women with a chi-squared test, after checking that all expected counts were at least 5.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contingency table, row percentages and chi-squared test</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>tab_sex <span class="ot">&lt;-</span> <span class="fu">table</span>(snore<span class="sc">$</span>sex, snore<span class="sc">$</span>tabac, <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"sex"</span>, <span class="st">"tabac"</span>))</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>tab_sex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   tabac
+sex  N  O
+  F 15 10
+  H 21 54</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(tab_sex, <span class="at">margin =</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   tabac
+sex  N  O
+  F 60 40
+  H 28 72</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>test_sex <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tab_sex)</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>test_sex<span class="sc">$</span>expected</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   tabac
+sex  N  O
+  F  9 16
+  H 27 48</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>test_sex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test with Yates' continuity correction
+
+data:  tab_sex
+X-squared = 7.0023, df = 1, p-value = 0.00814</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of smokers by sex</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(snore, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> tabac)) <span class="sc">+</span></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"F"</span> <span class="ot">=</span> <span class="st">"Women"</span>, <span class="st">"H"</span> <span class="ot">=</span> <span class="st">"Men"</span>)) <span class="sc">+</span></span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_grey</span>(<span class="at">start =</span> <span class="fl">0.9</span>, <span class="at">end =</span> <span class="fl">0.4</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"N"</span> <span class="ot">=</span> <span class="st">"Non-smoker"</span>, <span class="st">"O"</span> <span class="ot">=</span> <span class="st">"Smoker"</span>)) <span class="sc">+</span></span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Proportion of smokers among men and women"</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Proportion"</span>, <span class="at">fill =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="IEAP-Series02-Rstudio_files/figure-html/plot-tabac-sex-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Women smoked significantly less than men (40% vs 72% of smokers, chi-squared test, p &lt; 0.05). The data confirm the stereotype that women smoke less.</p>
+</section>
+</section>
+<section id="from-a-more-general-perspective-are-there-any-correlations-between-variables" class="level4">
+<h4 class="anchored" data-anchor-id="from-a-more-general-perspective-are-there-any-correlations-between-variables">From a more general perspective: are there any correlations between variables?</h4>
+<p>Since BMI and alcohol consumption were not normally distributed, correlations between the numeric variables were assessed with the Spearman correlation.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Numeric variables only</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>num <span class="ot">&lt;-</span> snore[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"weight"</span>, <span class="st">"height"</span>, <span class="st">"alcool"</span>, <span class="st">"bmi"</span>)]</span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Spearman correlation matrix</span></span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cor</span>(num, <span class="at">method =</span> <span class="st">"spearman"</span>), <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         age weight height alcool   bmi
+age     1.00  -0.01   0.01  -0.11 -0.05
+weight -0.01   1.00   0.93   0.09  0.54
+height  0.01   0.93   1.00   0.13  0.30
+alcool -0.11   0.09   0.13   1.00  0.02
+bmi    -0.05   0.54   0.30   0.02  1.00</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rho and p-value for each pair of variables</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>pairs_list <span class="ot">&lt;-</span> <span class="fu">combn</span>(<span class="fu">names</span>(num), <span class="dv">2</span>)</span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">apply</span>(pairs_list, <span class="dv">2</span>, <span class="cf">function</span>(v) {</span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a>  test <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(num[[v[<span class="dv">1</span>]]], num[[v[<span class="dv">2</span>]]], <span class="at">method =</span> <span class="st">"spearman"</span>, <span class="at">exact =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">var1 =</span> v[<span class="dv">1</span>], <span class="at">var2 =</span> v[<span class="dv">2</span>], <span class="at">rho =</span> <span class="fu">round</span>(<span class="fu">unname</span>(test<span class="sc">$</span>estimate), <span class="dv">2</span>), <span class="at">p =</span> <span class="fu">signif</span>(test<span class="sc">$</span>p.value, <span class="dv">3</span>))</span>
+<span id="cb83-6"><a href="#cb83-6" aria-hidden="true" tabindex="-1"></a>}))</span>
+<span id="cb83-7"><a href="#cb83-7" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      var1     var2     rho     p         
+ [1,] "age"    "weight" "-0.01" "0.886"   
+ [2,] "age"    "height" "0.01"  "0.936"   
+ [3,] "age"    "alcool" "-0.11" "0.287"   
+ [4,] "age"    "bmi"    "-0.05" "0.635"   
+ [5,] "weight" "height" "0.93"  "1.68e-44"
+ [6,] "weight" "alcool" "0.09"  "0.397"   
+ [7,] "weight" "bmi"    "0.54"  "5.06e-09"
+ [8,] "height" "alcool" "0.13"  "0.214"   
+ [9,] "height" "bmi"    "0.3"   "0.00243" 
+[10,] "alcool" "bmi"    "0.02"  "0.835"   </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot of each pair</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(num)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="IEAP-Series02-Rstudio_files/figure-html/correlations-snore-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Spearman correlations between numeric variables showed a very strong positive correlation between weight and height (rho = 0.93, p &lt; 0.05). BMI was also correlated with weight (rho = 0.54, p &lt; 0.05) and height (rho = 0.30, p &lt; 0.05), but these correlations are expected since BMI is computed from both variables. Age and alcohol consumption were not correlated with any other variable (p &gt; 0.05). These conclusions remain unchanged after a Bonferroni correction for the 10 tests performed (threshold p &lt; 0.005). The almost perfect alignment between weight and height is unusual for human data and suggests that this data set may have been partly simulated.</p>
+</section>
+</section>
+</section>
+<section id="grading-criteria-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="grading-criteria-checklist">Grading Criteria Checklist</h2>
+<p>The following checklist was used to ensure that all grading criteria were met and that our Git workflow was properly followed.</p>
+<section id="project-structure" class="level3">
+<h3 class="anchored" data-anchor-id="project-structure">Project Structure</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Clear and complete <code>README.md</code> and <code>LICENSE</code> files included.</label></li>
+<li><label><input type="checkbox" checked="">Complete <code>IEAP-Series02-Rstudio.qmd</code> file and corresponding PDF included.</label></li>
+<li><label><input type="checkbox" checked="">Clean folder structure with subfolders and sub-documents.</label></li>
+<li><label><input type="checkbox" checked="">Sub-documents used so team members could work on different sections simultaneously.</label></li>
+</ul>
+</section>
+<section id="git-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="git-workflow">Git Workflow</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Separate branches created for different sections.</label></li>
+<li><label><input type="checkbox" checked="">Meaningful commit messages used, with at least one commit per question.</label></li>
+<li><label><input type="checkbox" checked="">Changes pushed regularly to GitHub.</label></li>
+<li><label><input type="checkbox" checked="">Team members reviewed each other’s Pull Requests to recheck the work before merging.</label></li>
+<li><label><input type="checkbox" checked="">Final branches and merged code were checked to ensure no work was lost.</label></li>
+</ul>
+</section>
+<section id="final-check" class="level3">
+<h3 class="anchored" data-anchor-id="final-check">Final Check</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Master QMD was checked after merging all sections.</label></li>
+<li><label><input type="checkbox" checked="">Final document was rendered and checked.</label></li>
+<li><label><input type="checkbox" checked="">All required files and sections were present and correctly structured.</label></li>
+</ul>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
